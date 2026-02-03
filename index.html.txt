@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Vaane 💕</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ---------- BLURRED BACKGROUND ---------- */
+.background{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url("images/bg.jpg") center/cover no-repeat;
+    filter:blur(12px);
+    transform:scale(1.1);
+    z-index:-2;
+}
+
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
+    z-index:-1;
+}
+
+/* ---------- LOCK SCREEN ---------- */
+#lockScreen{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+.lock-box{
+    background:rgba(255,255,255,0.15);
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    animation:fadeIn 1.5s;
+}
+
+.lock-box h1{
+    font-family:'Great Vibes',cursive;
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.lock-box p{
+    margin-bottom:20px;
+}
+
+.lock-box input{
+    padding:12px;
+    width:100%;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:1rem;
+    text-align:center;
+}
+
+.lock-box button{
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:#fff;
+    color:#ff4f81;
+    font-weight:600;
+    cursor:pointer;
+}
+
+#error{
+    margin-top:10px;
+    color:#ffdede;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+#content{
+    display:none;
+}
+
+header{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+header h1{
+    font-family:'Great Vibes',cursive;
+    font-size:4rem;
+    animation:slideDown 2s;
+}
+
+header p{
+    margin-top:15px;
+    font-size:1.2rem;
+    animation:fadeIn 3s;
+}
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+/* ---------- LOVE BOX ---------- */
+.love-box{
+    background:rgba(255,255,255,0.15);
+    border-radius:20px;
+    padding:35px;
+    margin-bottom:60px;
+    backdrop-filter:blur(8px);
+    animation:fadeUp 1.5s;
+}
+
+.love-box h2{
+    font-family:'Great Vibes',cursive;
+    font-size:2.6rem;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.love-box p{
+    font-size:1.1rem;
+    line-height:1.9;
+    margin-bottom:15px;
+}
+
+/* ---------- IMAGE STORY ---------- */
+.story{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.story-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+.story-card img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    transition:transform 0.8s;
+}
+
+.story-card:hover img{
+    transform:scale(1.1);
+}
+
+.story-text{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:20px;
+    background:linear-gradient(transparent,rgba(0,0,0,0.85));
+    font-size:1rem;
+    animation:fadeUp 1s;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+    text-align:center;
+    padding:30px;
+    font-size:1.1rem;
+}
+
+footer span{
+    font-family:'Great Vibes',cursive;
+    font-size:1.8rem;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes slideDown{
+    from{opacity:0;transform:translateY(-40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="background"></div>
+<div class="overlay"></div>
+
+<!-- ?? LOCK SCREEN -->
+<div id="lockScreen">
+    <div class="lock-box">
+        <h1>Hello My Love 💕</h1>
+        <p>When did we meet for the first time?</p>
+        <input type="text" id="answer" placeholder="DD/MM/YYYY">
+        <button onclick="unlock()">Unlock ??</button>
+        <div id="error"></div>
+    </div>
+</div>
+
+<!-- ?? MAIN CONTENT -->
+<div id="content">
+
+<header>
+    <h1>Happy Birthday Vaane 💖</h1>
+    <p>From your long-distance boyfriend, Darshan😉</p>
+</header>
+
+<section>
+
+<div class="love-box">
+    <h2>To My Beautiful Vaane</h2>
+
+    <p>
+        Happy Birthday, my beautiful Vaane! ??? Even though miles separate us today, my heart is right there with you, celebrating every smile, every laugh, and every wonderful moment that makes you so special. Being away from you is never easy, but it only makes me appreciate you even more—the way your voice brightens my days, the way your laughter echoes in my memories, and the way your love fills my heart even from afar.
+    </p>
+
+    <p>
+        On your special day, I wish I could be there to hold you close, to see your eyes light up, and to tell you in person just how much you mean to me. But even from miles away, I want you to feel my love wrapping around you like the warmest hug. You are my joy, my inspiration, and the most beautiful part of my life, Vaane. I am so proud of you and so grateful to have you as my girlfriend.
+    </p>
+
+    <p>
+        May this birthday bring you endless happiness, laughter that never ends, dreams that soar higher than the clouds, and love that feels as near as if I were right beside you. I promise to keep counting the days until we can celebrate together, and until then, know that my heart beats for you alone. I love you more than words, more than distance, and more than anything in this world. Happy Birthday, my love! ????
+    </p>
+</div>
+
+<div class="story">
+
+    <div class="story-card">
+        <img src="images/vaane1.jpg">
+        <div class="story-text">
+            The smile that made me fall for you — effortlessly, endlessly.
+        </div>
+    </div>
+
+    <div class="story-card">
+        <img src="images/vaane2.jpg">
+        <div class="story-text">
+            Even across miles, you remain the safest place for my heart.
+        </div>
+    </div>
+
+    <div class="story-card">
+        <img src="images/vaane3.jpg">
+        <div class="story-text">
+            This love is mine, this heart is yours — today and forever.
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+<footer>
+    Made with endless love by <span>Darshan</span> ??
+</footer>
+
+</div>
+
+<script>
+function unlock(){
+    const ans = document.getElementById("answer").value.trim();
+    if(ans === "20/02/2025"){
+        document.getElementById("lockScreen").style.display="none";
+        document.getElementById("content").style.display="block";
+    }else{
+        document.getElementById("error").innerText="Only my Vaane knows the correct date ??";
+    }
+}
+</script>
+
+</body>
+</html>
