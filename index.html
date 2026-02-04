@@ -200,19 +200,34 @@ section{
 }
 
 .flip-card-back {
-    background: rgba(0,0,0,0.85);
-    color: #fff;
-    transform: rotateY(180deg);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    color: #fff;
+    text-align: center;
+    transform: rotateY(180deg);
+    position: relative;
+}
+
+/* Blurred background for back */
+.flip-card-back::before {
+    content: "";
+    position: absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px) brightness(0.5);
+    z-index:-1;
 }
 
 .flip-card-back .story-text {
+    position: relative;
+    padding: 20px;
     font-size: 1.1rem;
     line-height: 1.6;
-    text-align:center;
 }
 
 /* ---------- FOOTER ---------- */
@@ -296,9 +311,10 @@ footer span{
                 <div class="flip-card-front">
                     <img src="images/vaane1.jpg" alt="Vaane">
                 </div>
-                <div class="flip-card-back">
+                <div class="flip-card-back" style="background-image:url('images/vaane1.jpg');">
                     <div class="story-text">
-                        The smile that made me fall for you — effortlessly, endlessly. Every time I think of it, my heart skips a beat, and I swear the world feels brighter with you in it.
+                        The smile that made me fall for you — effortlessly, endlessly.<br>
+                        Every time I think of it, my heart skips a beat, and I swear the world feels brighter with you in it.
                     </div>
                 </div>
             </div>
@@ -311,9 +327,10 @@ footer span{
                 <div class="flip-card-front">
                     <img src="images/vaane2.jpg" alt="Vaane">
                 </div>
-                <div class="flip-card-back">
+                <div class="flip-card-back" style="background-image:url('images/vaane2.jpg');">
                     <div class="story-text">
-                        Even across miles, you remain the safest place for my heart. I dream of holding you close, feeling your warmth, and never letting go — every single day.
+                        Even across miles, you remain the safest place for my heart.<br>
+                        I dream of holding you close, feeling your warmth, and never letting go — every single day.
                     </div>
                 </div>
             </div>
@@ -326,9 +343,10 @@ footer span{
                 <div class="flip-card-front">
                     <img src="images/vaane3.jpg" alt="Vaane">
                 </div>
-                <div class="flip-card-back">
+                <div class="flip-card-back" style="background-image:url('images/vaane3.jpg');">
                     <div class="story-text">
-                        This love is mine, this heart is yours — today and forever. You make every distance seem small because your love reaches me wherever I am, Vaane.
+                        This love is mine, this heart is yours — today and forever.<br>
+                        You make every distance seem small because your love reaches me wherever I am, Vaane.
                     </div>
                 </div>
             </div>
@@ -359,5 +377,4 @@ function unlock(){
 
 </body>
 </html>
-
 
