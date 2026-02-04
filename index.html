@@ -153,39 +153,66 @@ section{
     margin-bottom:15px;
 }
 
-/* ---------- IMAGE STORY ---------- */
+/* ---------- FLIP CARD ---------- */
 .story{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:30px;
 }
 
-.story-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:20px;
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+    width: 100%;
+    height: 380px;
+    border-radius: 20px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 20px;
     box-shadow:0 15px 40px rgba(0,0,0,0.4);
 }
 
-.story-card img{
-    width:100%;
-    height:auto;
-    object-fit:cover;
-    transition:transform 0.8s;
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
 }
 
-.story-card:hover img{
-    transform:scale(1.1);
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
-.story-text{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    padding:20px;
-    background:linear-gradient(transparent,rgba(0,0,0,0.85));
-    font-size:1rem;
-    animation:fadeUp 1s;
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.flip-card-back {
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.flip-card-back .story-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align:center;
 }
 
 /* ---------- FOOTER ---------- */
@@ -224,18 +251,18 @@ footer span{
 <div class="background"></div>
 <div class="overlay"></div>
 
-<!-- ?? LOCK SCREEN -->
+<!-- LOCK SCREEN -->
 <div id="lockScreen">
     <div class="lock-box">
         <h1>Hello My Love 💕</h1>
         <p>When did we meet for the first time?</p>
         <input type="text" id="answer" placeholder="DD/MM/YYYY">
-        <button onclick="unlock()">Unlock ??</button>
+        <button onclick="unlock()">Unlock 💖</button>
         <div id="error"></div>
     </div>
 </div>
 
-<!-- ?? MAIN CONTENT -->
+<!-- MAIN CONTENT -->
 <div id="content">
 
 <header>
@@ -264,23 +291,47 @@ footer span{
 <div class="story">
 
     <div class="story-card">
-        <img src="images/vaane1.jpg">
-        <div class="story-text">
-            The smile that made me fall for you — effortlessly, endlessly.
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="images/vaane1.jpg" alt="Vaane">
+                </div>
+                <div class="flip-card-back">
+                    <div class="story-text">
+                        The smile that made me fall for you — effortlessly, endlessly.
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="story-card">
-        <img src="images/vaane2.jpg">
-        <div class="story-text">
-            Even across miles, you remain the safest place for my heart.
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="images/vaane2.jpg" alt="Vaane">
+                </div>
+                <div class="flip-card-back">
+                    <div class="story-text">
+                        Even across miles, you remain the safest place for my heart.
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="story-card">
-        <img src="images/vaane3.jpg">
-        <div class="story-text">
-            This love is mine, this heart is yours — today and forever.
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="images/vaane3.jpg" alt="Vaane">
+                </div>
+                <div class="flip-card-back">
+                    <div class="story-text">
+                        This love is mine, this heart is yours — today and forever.
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -301,12 +352,11 @@ function unlock(){
         document.getElementById("lockScreen").style.display="none";
         document.getElementById("content").style.display="block";
     }else{
-        document.getElementById("error").innerText="Only my Vaane knows the correct date ??";
+        document.getElementById("error").innerText="Only my Vaane knows the correct date 💖";
     }
 }
 </script>
 
 </body>
-
 </html>
 
